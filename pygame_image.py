@@ -20,23 +20,25 @@ def main():
     tmr = 0
     
     while True:
-        y = 0
+        y = -(tmr%3200)
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
         key_lst = pg.key.get_pressed()
         #print(key_lst[pg.K_UP],key_lst[pg.K_DOWN],key_lst[pg.K_LEFT],key_lst[pg.K_RIGHT])
-        if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0,-1))
-        elif key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0,1))
-        elif key_lst[pg.K_RIGHT]:
+        if key_lst[pg.K_RIGHT]:
             kk_rct.move_ip((1,0))
         elif key_lst[pg.K_LEFT]:
             kk_rct.move_ip((-1,0))
-        
-        
-        
+        elif key_lst[pg.K_DOWN]:
+            kk_rct.move_ip((0,1))
+        elif key_lst[pg.K_UP]:
+            kk_rct.move_ip((0,-1))
+        else:
+            kk_rct.move_ip((-1,0))
+            
+
+       
         
 
         x = -(tmr%3200)
